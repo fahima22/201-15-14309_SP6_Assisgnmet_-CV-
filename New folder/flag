@@ -1,0 +1,66 @@
+steghide
+stegoveritas
+zsteg
+binwalk
+exiftool
+strings command
+stegsolver
+diit-1.5.jar
+foremost
+sonic visualizer
+magic eye solver
+
+
+
+(1) https://pastebin.com/WQMRun7e
+
+// Program(1): 
+
+// Entering the first choice here:
+let choice1 = prompt("--------------------"+"\n"+"(1) Deposit Cash"+"\n"+"(2) Cash out"+"\n"+"-------------------"+"\n"+"Enter a choice: ");
+choice1 = (+choice1);
+
+if(choice1 == 1){ // If we select Deposit cash choice, the following task will execute
+    let amount1 = prompt("How much Cash do you want to deposit?");
+    amount1 = (+amount1);
+    alert("Your total balance is: "+ amount1+" TK");
+    
+    // Entering the second choice here:
+    let choice2 = prompt("--------------------"+"\n"+"(1) Deposit Cash"+"\n"+"(2) Cash out"+"\n"+"-------------------"+"\n"+"Select from the following list again");
+    choice2 = (+choice2);
+    if(choice2 == 1){
+         let amount2 = prompt("Enter amount: ");
+         amount2 = (+amount2);
+         let total = amount1 + amount2; // After depositing a new amount of tk, we added the value with the previous amount
+         alert("The total balance is: "+(+total)+" TK");
+    }
+    else if(choice2 == 2){ // If we select the Cash out choice, the following task will execute
+         let cash_out1 = prompt("How much money you want to cash out?");
+         if(amount1>cash_out1){
+             alert("Total cash out: "+cash_out1+" TK"+"\n"+"Cash left in the Bank: "+(amount1-cash_out1)+" TK");
+         }
+         else{
+             alert("You do not have enough balance!");
+         }
+    }
+    else{ // This is for entering the choice number from 1 -> 2.
+        alert("Invalid choice!, you should have choiced the number from 1 & 2");
+    }
+}
+else if(choice1 == 2){ // At the first apporoch of cash out task, where you do not have any balance or you didn't set any value for your amount
+    let cash_left = Math.floor(Math.random() * 50000); // That's why I use a random generator function for choosing the value of amount instead of myself
+    alert("Cash left in the Bank: "+cash_left+" TK");
+
+    let cash_out2 = prompt("Enter the balance for cash out: ");
+   
+    if(cash_left>cash_out2){
+         alert("Cash out total: "+cash_out2+" TK"+"\n"+"Cash left in the Bank: "+(cash_left-cash_out2)+" TK"); // It will tell the total cash you take out and also how much cash you left in the bank
+    }
+    else{
+         alert("Sorry, you don not not have enough balance!");
+    }
+}
+else{
+    alert("Invalid choice!, Please select the number from 1 & 2"); // As you know, we have only two choices here. So, we should choice from 1 -> 2
+}
+
